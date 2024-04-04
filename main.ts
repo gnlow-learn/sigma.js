@@ -2,6 +2,7 @@ import Sigma from "https://esm.sh/sigma@3.0.0-beta.16"
 import Graph from "https://esm.sh/graphology@0.25.4"
 import ForceSupervisor from "https://esm.sh/graphology-layout-force@0.2.4/worker"
 import FA2Layout from "https://esm.sh/graphology-layout-forceatlas2@0.10.1/worker"
+import { fromRange0to1 } from "https://esm.sh/gh/gnlow/twilight.js@5169ea7236c05f38ca7b346ed16fe2170a87c558/mod.ts"
 
 const $container = document.createElement("div")
 document.body.append($container)
@@ -33,6 +34,8 @@ if (false) {
     graph.forEachNode(node => {
         const degree = graph.degree(node)
         graph.setNodeAttribute(node, "label", degree)
+        //console.log((Math.min(degree / 100, 0.99)), fromRange0to1(Math.min(degree / 100, 0.99)).toRgbStr())
+        graph.setNodeAttribute(node, "color", fromRange0to1(Math.min(degree / 100, 0.99)).toRgbStr())
         graph.setNodeAttribute(node, "size", 2)
     })
     const layout = new FA2Layout(graph)
