@@ -21,13 +21,13 @@ const sigma = new Sigma(graph, $container)
 
 import { ba } from "./ba.ts"
 
-if (false) {
-    const layout = new ForceSupervisor(graph)
+if (true) {
+    const layout = new FA2Layout(graph)
     layout.start()
     
     setInterval(() => {
         ba(graph)
-    }, 100)
+    }, 300)
 } else {
     for (let i=0; i<1000; i++)
         ba(graph)

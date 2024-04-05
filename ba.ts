@@ -45,7 +45,7 @@ export const ba =
         size: 5
     })
 
-    randNodes(2)(graph).forEach(
+    randNodes(3)(graph).forEach(
         target => graph.addEdge(newNodeId, target)
     )
 }
